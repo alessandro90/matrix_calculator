@@ -11,6 +11,7 @@ dimensions.
 Complex numbers are supported. To write a complex number append a 'j' after the imaginary part
 of the number, e.g., 5-6j (no white spaces/tabs between real and imaginary parts).
 The number of significant digits displayed in the result can be set from 1 to 20.
+To start the calculator launch calculator.py.
 
 Currently supported operations:
 -Sum (two matrices needed);
