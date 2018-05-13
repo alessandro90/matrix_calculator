@@ -4,14 +4,16 @@ from frames import *
 from functions import *
 
 
-operations = OrderedDict({"Sum": 2, 
-                          "Multiplication": 2, 
-                          "Determinant": 1, 
-                          "Eigenvalues": 1,
-                          "Eigenvectors": 1,
-                          "Singular values": 1,
-                          "Inversion": 1,
-                          "Pseudo-inverse": 1})
+operations = OrderedDict(
+        ("Sum", 2,)
+        ("Multiplication", 2),
+        ("Determinant", 1),
+        ("Eigenvalues", 1),
+        ("Eigenvectors", 1),
+        ("Singular values", 1),
+        ("Inversion", 1),
+        ("Pseudo-inverse", 1)
+)
 
 root = MyRoot(3, 2)
 root.title("Matrix Calculator")
@@ -30,7 +32,7 @@ menu = tk.Menu(root)
 available_ops = tk.Menu(menu)
 menu.add_cascade(label = "Operations", menu = available_ops)
 for operation in operations.keys():
-    available_ops.add_command(label = operation, command = 
+    available_ops.add_command(label = operation, command =
         make_computation(operations, operation, header, matrix_frames))
 
 root.config(menu = menu)
