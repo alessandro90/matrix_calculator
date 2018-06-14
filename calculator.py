@@ -4,8 +4,8 @@ from frames import *
 from functions import *
 
 
-operations = OrderedDict(
-        ("Sum", 2,)
+operations = OrderedDict([
+        ("Sum", 2,),
         ("Multiplication", 2),
         ("Determinant", 1),
         ("Eigenvalues", 1),
@@ -13,7 +13,7 @@ operations = OrderedDict(
         ("Singular values", 1),
         ("Inversion", 1),
         ("Pseudo-inverse", 1)
-)
+])
 
 root = MyRoot(3, 2)
 root.title("Matrix Calculator")
