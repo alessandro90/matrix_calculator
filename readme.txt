@@ -23,6 +23,6 @@ Currently supported operations:
 -Inverse matrix;
 -Moore-Penrose pseudo-inverse.
 
-Dependecies:
+Dependencies:
 -Numpy;
 -Tkinter.
