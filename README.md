@@ -22,5 +22,5 @@ To start the calculator launch calculator.py, or from command line type `python 
 - Moore-Penrose pseudo-inverse.
 
 #### Dependencies:
-- Numpy;
-- Tkinter.
+- [Numpy](http://www.numpy.org/);
+- [Tkinter](https://wiki.python.org/moin/TkInter).
