@@ -76,7 +76,7 @@ def convert_to_matrix(matrices, operations, op):
     input_mats = defaultdict(list)
     for matrix_index, mat in enumerate(matrices[:operations[op]]):
         if not mat:
-            raise EmptyMatrixError("Missing required matrix.")
+            raise EmptyMatrixError
         rows = mat.split('\n')
         for row in rows:
             row = row.replace('\t', ' ')
@@ -95,7 +95,7 @@ def convert_to_matrix(matrices, operations, op):
                             else:
                                 numeric_row.append(float(element))
                         except ValueError:
-                            raise FormatError("Format Error.")
+                            raise FormatError
                 input_mats[matrix_index].append(numeric_row)
     return input_mats
 
@@ -115,42 +115,42 @@ def produce_result(op, np_mats):
         try:
             result = sum(np_mats)
         except (TypeError, ValueError) as e:
-            raise FormatError("Format Error.")
+            raise FormatError
     elif op == "Multiplication":
         try:
             result = np_mats[0].dot(np_mats[1])
         except (TypeError, ValueError):
-            raise FormatError("Format Error.")
+            raise FormatError
     elif op == "Determinant":
         try:
             result = np.linalg.det(np_mats[0])
         except np.linalg.linalg.LinAlgError:
-            raise FormatError("Format Error.")
+            raise FormatError
     elif op == "Eigenvalues":
         try:
             result = np.linalg.eigvals(np_mats[0])
         except np.linalg.LinAlgError:
-            raise NonComputableError("Wrong format or\nresult does not converge.")
+            raise NonComputableError
     elif op == "Eigenvectors":
         try:
             _, result = np.linalg.eig(np_mats[0])
         except np.linalg.LinAlgError:
-            raise NonComputableError("Wrong format or\nresult does not converge.")
+             NonComputableError
     elif op == "Singular values":
         try:
             _, result, _ = np.linalg.svd(np_mats[0])
         except:
-            raise NonComputableError("Wrong format or\nresult does not converge.")
+            raise NonComputableError
     elif op == "Inversion":
         try:
             result = np.linalg.inv(np_mats[0])
         except np.linalg.LinAlgError:
-            raise NonComputableError("Wrong format or\nSingular matrix.")
+            raise NonComputableError
     elif op == "Pseudo-inverse":
         try:
             result = np.linalg.pinv(np_mats[0])
         except np.linalg.LinAlgError:
-            raise NonComputableError("Wrong format or\nresult does not converge.")
+            raise NonComputableError
     return result
 
 
